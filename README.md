@@ -1,3 +1,9 @@
+---
+title: chatbot_resume
+app_file: app.py
+sdk: gradio
+sdk_version: 5.49.1
+---
 # Chatbot Resume (Rahul Kashyap)
 
 A minimal Gradio chatbot that roleplays as Rahul Kashyap using an OpenAI model. It pulls context from a PDF resume and a short summary, supports tool calls to record user contact details or unknown questions (via Pushover notifications), and enforces concise safety guardrails.
