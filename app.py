@@ -146,7 +146,7 @@ If the user is engaging in discussion, try to steer them towards getting in touc
                     "Let's pause here to avoid an excessively long automated loop. "
                     "Please refine your request or ask a new question."
                 )
-            response = self.openai.chat.completions.create(model="gpt-4o-mini", messages=messages, tools=tools)
+            response = self.openai.chat.completions.create(model="gpt-5-nano", messages=messages, tools=tools)
             call_count += 1
             if response.choices[0].finish_reason=="tool_calls":
                 message = response.choices[0].message
@@ -163,9 +163,9 @@ if __name__ == "__main__":
     me = Me()
     gr.ChatInterface(
         fn=me.chat,
-        type="messages",
         title=f"Chat with {me.name}",
         description=(
+            "<div style='text-align: center;'><a href='https://www.linkedin.com/in/rahul-kashyap-281b4abb/' target='_blank'>LinkedIn</a> | <a href='https://github.com/Rahul-Kashyap2' target='_blank'>GitHub</a></div>\n\n"
             "Ask about Rahul's background, projects, and experience. "
             "To reach out directly, send: \n"
             "'Need to contact Rahul Kashyap, my email id: <your email>, note: <optional note>'"
@@ -178,7 +178,6 @@ if __name__ == "__main__":
             "How can your experience help my team/company?",
             "Need to contact Rahul Kashyap, my email id: your@email.com, note: Interested in a quick intro call"
         ],
-        theme=gr.themes.Soft(),
         textbox=gr.Textbox(placeholder="Type a question or use the contact template above...")
     ).launch()
     
